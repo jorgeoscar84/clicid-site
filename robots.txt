@@ -1,67 +1,14 @@
-# robots.txt — Clic ID (firmas electrónicas certificadas ANF AC, Ecuador)
-
 User-agent: *
 Allow: /
 
-# --- Buscadores con superficies de IA: rastreo y recuperación permitidos ---
 User-agent: Googlebot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: AdsBot-Google
 Allow: /
 
-User-agent: Bingbot
+User-agent: AdsBot-Google-Mobile
 Allow: /
 
-User-agent: GPTBot
-Allow: /
+Sitemap: https://clicid.com.ec/sitemap.xml
 
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: DuckAssistBot
-Allow: /
-
-User-agent: MistralAI-User
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# Recursos que no aportan a la respuesta
-User-agent: *
-Disallow: /docs/
-
-# Guía para modelos de lenguaje y agentes de IA
-# llms.txt:        https://clicid-ec.157.180.30.98.sslip.io/llms.txt
-# llms-full.txt:   https://clicid-ec.157.180.30.98.sslip.io/llms-full.txt
-# ai.txt:          https://clicid-ec.157.180.30.98.sslip.io/ai.txt
-
-Sitemap: https://clicid-ec.157.180.30.98.sslip.io/sitemap.xml
