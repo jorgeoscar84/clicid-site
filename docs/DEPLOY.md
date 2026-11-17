@@ -119,6 +119,10 @@ que hay que crear ambos.
 }
 ```
 
+> Dokploy puede añadir un sufijo aleatorio al `appName` (en la app de referencia
+> quedó `sorteo-studio-qpippw`). Usar el `appName` **devuelto** por `application-create`
+> como `serviceName` del dominio y como argumento de `domain-generateDomain`.
+
 ### 3.3 Fuente Git (Custom Git)
 
 ```jsonc
@@ -181,15 +185,22 @@ sesión. Luego:
   "certificateType": "letsencrypt",
   "domainType": "application",
   "serviceName": "<appName devuelto por application-create>",
-  "path": null,
+  "path": "/",
+  "internalPath": "/",
   "stripPath": false,
-  "internalPath": null,
   "customCertResolver": null,
   "customEntrypoint": null,
-  "middlewares": null,
-  "forwardAuthEnabled": false
+  "middlewares": [],
+  "forwardAuthEnabled": false,
+  "enabled": true
 }
 ```
+
+> Valores contrastados con una app real ya desplegada en esta misma instancia
+> (`Sorteo Studio`, sourceType `git`, buildType `dockerfile`, estado `done`):
+> `path "/"`, `internalPath "/"`, `stripPath false`, `certificateType letsencrypt`,
+> `serviceName = appName`, dominio `*.sslip.io` del mismo patrón. La única diferencia
+> es el `port`: **80** en Clic ID (nginx) frente al puerto de la app Node de referencia.
 
 **Opción B — dominio propio `clicid.com.ec` (producción).**
 1. DNS: registro **A** `clicid.com.ec` → `157.180.30.98` (y `www` si se quiere).
@@ -210,7 +221,10 @@ sesión. Luego:
 ```
 
 Auto-deploy (opcional): Dokploy usa `application-refreshToken` para el webhook de
-Custom Git; sin webhook, cada push requiere pulsar **Deploy** (o `application-deploy`).
+Custom Git. La app de referencia de esta instancia tiene `autoDeploy: true` (funciona),
+pero para el sitio no es necesario: sin webhook, cada push requiere pulsar **Deploy**
+(o `application-deploy`). Si se activa, hay que configurar el webhook apuntando a
+`https://dokploy.nexuss.top/api/deploy/...` con el token de la app.
 
 ---
 
