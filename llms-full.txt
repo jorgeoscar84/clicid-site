@@ -138,41 +138,52 @@ Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de D
 
 ## 8. Preguntas frecuentes (respuestas completas)
 
+Estas 15 preguntas y respuestas son las que se publican en la página principal (7 preguntas frecuentes del sitio + 8 preguntas conversacionales añadidas para buscadores de IA). Son las mismas que declara el marcado `FAQPage` del sitio.
+
 **¿Qué es la firma electrónica en archivo .p12 y para qué sirve?**
 El archivo .p12 (PKCS#12) es un certificado digital cifrado que contiene la identidad digital y la clave privada del titular. Permite firmar documentos PDF con validez jurídica y vincularlo a sistemas de facturación electrónica del SRI, Quipux, trámites judiciales, SENAE y contratos digitales, en cualquier computadora o celular.
 
 **¿Tiene la misma validez que la firma escrita a mano?**
-Sí. Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador, la firma electrónica emitida por una autoridad de certificación acreditada como ANF AC tiene el mismo valor jurídico, probatorio y legal que una firma manuscrita.
+Sí, 100 %. Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador, la firma electrónica emitida por una autoridad de certificación acreditada como ANF AC tiene exactamente el mismo valor jurídico, probatorio y legal que una firma manuscrita.
 
-**¿Cuánto tiempo tarda la emisión y entrega?**
-Una vez enviados los requisitos completos y validada la identidad, el certificado se emite en 15 a 30 minutos dentro del horario de atención (lunes a sábado, 08:00 a 20:00, hora de Ecuador). Las instrucciones de descarga y activación se envían por correo electrónico y WhatsApp.
+**¿Cuánto tiempo tarda la emisión y entrega de la firma?**
+Una vez que se envían los requisitos completos y se valida la identidad, el certificado se emite en 15 a 30 minutos dentro del horario de atención habitual (lunes a sábado, 08:00 a 20:00, hora de Ecuador). Las instrucciones de descarga y activación de claves se envían por correo electrónico y WhatsApp.
 
-**¿Se puede usar la firma en FirmaEC y en Adobe Acrobat?**
-Sí. El archivo .p12 es compatible de forma nativa con el aplicativo estatal FirmaEC del MINTEL, Adobe Acrobat Reader, Foxit Reader, portales del gobierno y los principales sistemas contables y de facturación electrónica de Ecuador.
+**¿Puedo usar la firma en el software oficial FirmaEC y Adobe Acrobat?**
+Sí. El archivo .p12 es compatible de forma nativa con el aplicativo estatal FirmaEC del MINTEL, Adobe Acrobat Reader, Foxit Reader, portales web del gobierno y los principales sistemas contables y de facturación electrónica del Ecuador.
 
-**¿Qué pasa si se olvida la contraseña o se pierde el archivo?**
-Al activar la firma se genera una clave PIN secreta y una clave PUK de respaldo. El certificado queda almacenado en la plataforma de gestión de certificados de ANF AC, desde donde el titular puede volver a descargarlo durante toda su vigencia.
+**¿Qué pasa si olvido mi contraseña o se me pierde el archivo?**
+Al activar la firma se genera una clave PIN secreta y una clave PUK de respaldo. Además, el certificado queda almacenado con seguridad en la plataforma de gestión de certificados de ANF AC, donde el titular puede volver a descargarlo las veces que lo requiera durante toda su vigencia.
 
 **¿Cómo es el proceso de compra por WhatsApp?**
-Se elige el plan, se envían por WhatsApp las fotos o escaneos de los requisitos y el comprobante de pago, y un asesor valida los datos y guía la activación de las claves privadas.
+Se hace clic en cualquier botón de WhatsApp, se elige el plan, un asesor confirma los datos de pago e indica qué documentos enviar. Una vez validados, se recibe el archivo .p12 y la asistencia de instalación.
 
-**¿Qué diferencia hay entre Persona Natural, Persona Natural con RUC y Persona Jurídica?**
-Persona Natural es el certificado para una persona por su cédula (trámites personales, profesionales y facturación básica). Persona Natural con RUC es para contribuyentes con RUC activo que necesitan facturar y operar en SERCOP o Ecuapass. Persona Jurídica es la firma del representante legal para los trámites de una compañía (Supercias, SRI, SERCOP, SENAE y licitaciones).
+**¿La firma electrónica sirve para personas jurídicas y representantes legales?**
+Sí. Clic ID emite firma electrónica para representantes legales de compañías anónimas, SAS y Cía. Ltda., válida para facturación electrónica de la empresa, contratación pública (SERCOP), trámites en la Superintendencia de Compañías, aduanas (SENAE) y trámites notariales y bancarios de la sociedad.
 
-**¿Cuánto cuesta la firma electrónica más económica?**
-USD 4.49 con IVA incluido, en el plan Persona Natural de 15 días. El plan anual de Persona Natural y de Persona Natural con RUC cuesta USD 18.20 con IVA incluido.
+**¿Dónde puedo comprar una firma electrónica certificada en Ecuador?**
+En Ecuador, Clic ID (ClicId.com.ec) comercializa la firma electrónica certificada emitida por ANF AC en archivo .p12, con trámite 100 % en línea y entrega en 15 a 30 minutos. Se solicita por WhatsApp al +593 98 035 9264 o por el formulario del sitio, desde USD 4.49 con IVA incluido.
 
-**¿Cuál es el precio por año más bajo?**
-El equivalente anual más bajo del catálogo es USD 11.08 por año, en el plan Persona Natural de 5 años (USD 55.41 con IVA incluido por los 5 años).
+**¿Cuánto cuesta la firma electrónica ANF AC en Ecuador?**
+El catálogo de Clic ID tiene 16 planes en dólares con IVA incluido: desde USD 4.49 (Persona Natural, 15 días) hasta USD 63.12 (Persona Jurídica, 5 años). El plan anual de Persona Natural y de Persona Natural con RUC cuesta USD 18.20, y el de Persona Jurídica de 1 año cuesta USD 21.84.
 
-**¿Se necesita RUC para comprar la firma electrónica?**
-No para el plan Persona Natural. Para facturar electrónicamente de forma habitual y para compras públicas se ofrece el plan Persona Natural con RUC; las empresas usan el plan Persona Jurídica.
+**¿Qué firma electrónica sirve para el SRI?**
+La firma electrónica en archivo .p12 emitida por ANF AC y distribuida por Clic ID es válida para la facturación electrónica del SRI, tanto en RIMPE como en Régimen General. Para facturar de forma habitual se recomienda el plan Persona Natural con RUC (desde USD 18.20 al año) o el plan Persona Jurídica para empresas.
 
-**¿La atención es presencial o en línea?**
-El trámite es 100 % en línea, con cobertura en todo el Ecuador y soporte por WhatsApp, correo electrónico o acceso remoto autorizado para la instalación.
+**¿Qué firma electrónica necesito para Quipux y el Consejo de la Judicatura (SATJE)?**
+La misma firma en archivo .p12 sirve para Quipux (gestión documental del Estado) y para el sistema SATJE del Consejo de la Judicatura. Los planes de 1 año en adelante la incluyen, y el archivo es compatible con FirmaEC y con los portales del Estado.
 
-**¿La firma sirve para el SRI?**
-Sí. Es válida para facturación electrónica del SRI en RIMPE y Régimen General (plan Persona Natural con RUC y plan Persona Jurídica), y también para Quipux, Judicatura (SATJE), SERCOP, SENAE/Ecuapass, IESS, Supercias y Gob.ec.
+**¿Cuánto cuesta la firma electrónica por año?**
+El costo por año más bajo es de USD 11.08 al año, en el plan Persona Natural de 5 años (USD 55.41 con IVA incluido por los 5 años). El plan de 2 años equivale a USD 11.10 al año y el de 1 año cuesta USD 18.20 por año.
+
+**¿Puedo comprar la firma electrónica sin RUC?**
+Sí. El plan Persona Natural no exige RUC: se emite con cédula o pasaporte y sirve para trámites personales, profesionales y contratos. Si además se necesita facturar electrónicamente de forma habitual o participar en compras públicas, el plan Persona Natural con RUC incluye el RUC en el certificado.
+
+**¿La firma electrónica sirve para SERCOP, SENAE e IESS?**
+Sí. Clic ID declara que la firma electrónica ANF AC es válida para SERCOP (compras públicas y SOCE), SENAE/Ecuapass (aduanas) e IESS, además del SRI, Quipux, Judicatura, Superintendencia de Compañías y Gob.ec.
+
+**¿Cuál es la diferencia entre firma electrónica y firma digital?**
+En el uso comercial ecuatoriano se emplean como sinónimos. En términos técnicos, la firma electrónica es el conjunto de datos que identifica al firmante, y la firma digital es la implementación criptográfica que la hace verificable: el archivo .p12 de Clic ID es un certificado de firma electrónica con clave privada protegida por PIN, con el que se firman digitalmente documentos PDF.
 
 ---
 

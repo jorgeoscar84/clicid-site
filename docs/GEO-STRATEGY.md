@@ -5,7 +5,7 @@
 **Investigación:** 2026-11-16. **Estado del repo auditado:** 2026-11-16, 22:20 (hora de Ecuador).
 **Alcance:** investigación, auditoría, decisiones y checklist. Los entregables están en la sección 12.
 
-> **Aviso de concurrencia:** durante esta auditoría el sitio fue rediseñado en paralelo (styles.css v5, precios en HTML del servidor, JSON-LD ampliado, sección `#respuesta-rapida`, tabla `.rate`). Este documento refleja el estado observado a las 22:20 del 16/11/2026. Si el rediseño continúa, verificar de nuevo antes de aplicar el checklist.
+> **Aviso de concurrencia:** durante esta auditoría el sitio fue rediseñado y auditado en paralelo por otro agente del equipo. Se observó: commit `3bded1f` («Rediseño premium, GEO/AI-SEO y contenido SSR») con styles.css v5, precios en HTML del servidor, JSON-LD ampliado, sección `#respuesta-rapida`, tabla `.rate` y directivas de IA en `robots.txt`; además se creó `assets/og-image.png` y se restauró `politica-de-privacidad.html` con contenido. **Instantánea final de este documento: 16/11/2026, 22:25 (hora de Ecuador).** Verificar de nuevo antes de aplicar el checklist.
 
 ---
 
@@ -38,6 +38,20 @@ La investigación 2025–2026 coincide en un punto: **los buscadores generativos
 | FAQ accesible sin JS | ✅ `<details>/<summary>` nativos |
 | `speakable` | ✅ `.hero__sub`, `.qa__answer` |
 | Hreflang, geo.region, robots meta | ✅ presentes |
+| `robots.txt` con directivas de IA | ✅ 22 user-agents de IA permitidos + `Disallow: /docs/` |
+| `assets/og-image.png` | ✅ creado (verificar dimensiones 1200×630) |
+| `politica-de-privacidad.html` | ✅ restaurada con contenido (15.668 bytes) |
+| `offerCount` del JSON-LD | ✅ corregido a 16 |
+
+### 2.3 Actualización durante la auditoría (22:25)
+
+Mientras se redactaba este documento, otro agente del equipo:
+- publicó directivas de IA en `robots.txt` (incluye GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot/User, ClaudeBot/SearchBot/User, Google-Extended, Applebot(-Extended), Bingbot, Amazonbot, DuckAssistBot, MistralAI-User, CCBot) y `Disallow: /docs/`;
+- creó `assets/og-image.png` y restauró `politica-de-privacidad.html`;
+- corrigió `offerCount` a 16 en el JSON-LD;
+- **sustituyó el dominio `clicid.com.ec` por el host de staging `clicid-ec.157.180.30.98.sslip.io` en todo el repo**, incluidos los tres archivos de agentes (coherente con el despliegue actual en Dokploy, pero hay que decidir el dominio definitivo antes de publicar).
+
+Por eso los puntos 3, 4 y parte del 5 de la tabla 2.2 quedan resueltos; los ítems vigentes son los marcados como pendientes en la sección 5.
 
 ### 2.2 Hallazgos abiertos (ordenados por impacto)
 
@@ -173,15 +187,19 @@ Los datos estructurados **no son un factor de ranking**; desambiguan entidades y
 
 ### P0 — Antes de publicar en producción
 
-- [ ] **Sustituir el dominio de staging por `https://clicid.com.ec/`** en canonical, ambos hreflang, `og:url` y todos los `@id`/`url` del JSON-LD.
-- [ ] **Crear `assets/og-image.png`** (1200×630) o corregir `og:image`, `og:image:width/height`, `twitter:image` e `image` del JSON-LD.
-- [ ] **Restaurar `politica-de-privacidad.html`** (hoy eliminado, con enlaces vivos en el pie y en `sitemap.xml`).
-- [ ] **Integrar los bloques C, D y E** de `docs/geo-content-blocks.html`.
-- [ ] **Sustituir el JSON-LD** actual por el de `docs/geo-head-block.html` (un solo bloque en el documento).
-- [ ] **Añadir a `robots.txt`** el bloque de directivas de IA (sección 7).
-- [ ] **Publicar** `llms.txt`, `llms-full.txt`, `ai.txt` y la copia `.well-known/ai.txt` como `text/plain; charset=utf-8`.
-- [ ] **Añadir al `<head>`** `rel="describedby"` → `llms.txt` y `rel="alternate" type="text/plain"` → `llms-full.txt`.
-- [ ] **Actualizar `sitemap.xml`** (`lastmod`) y verificar que las 2 URLs responden 200.
+- [ ] **Decidir el dominio definitivo y aplicarlo en todo el repo.** Hoy todo apunta a `clicid-ec.157.180.30.98.sslip.io` (staging de Dokploy). Si el dominio final es `clicid.com.ec`, ejecutar un reemplazo global antes de publicar:
+  ```bash
+  grep -rl 'clicid-ec.157.180.30.98.sslip.io' --exclude-dir=.git --exclude-dir=node_modules . \
+    | xargs sed -i 's|https://clicid-ec\.157\.180\.30\.98\.sslip\.io|https://clicid.com.ec|g'
+  ```
+  Afecta a `index.html` (canonical, hreflang, og:url, JSON-LD), `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt`, `ai.txt` y `politica-de-privacidad.html`. `docs/geo-head-block.html` ya está escrito con el dominio de producción.
+- [ ] **Integrar los bloques C, D y E** de `docs/geo-content-blocks.html` (A y B ya están implementados).
+- [ ] **Sustituir el JSON-LD** actual por el de `docs/geo-head-block.html`: completa las 16 ofertas con `valueAddedTaxIncluded`, amplía FAQPage de 7 a 15, añade `sameAs`, `contactPoint`, `knowsAbout`, `mainEntity`, `dateModified` y `supply` del HowTo.
+- [ ] **Publicar** `llms.txt`, `llms-full.txt`, `ai.txt` y la copia `.well-known/ai.txt` como `text/plain; charset=utf-8` (ya están en el repo; falta servirlos y verificarlos en la URL pública).
+- [ ] **Añadir al `<head>`** `rel="describedby"` → `llms.txt` y `rel="alternate" type="text/plain"` → `llms-full.txt` (ya están en `docs/geo-head-block.html`).
+- [ ] **Actualizar `sitemap.xml`** (`lastmod` sigue en 2026-11-08) y verificar que las 2 URLs responden 200.
+- [ ] **Verificar `assets/og-image.png`**: que exista en la URL pública y mida 1200×630 (fue creado durante la auditoría).
+- [ ] **Revisar `Disallow: /docs/`** en `robots.txt`: es correcto para no indexar la documentación interna, pero asegurar que no bloquee ningún recurso del sitio público (css, js, imágenes, `llms*`).
 
 ### P1 — Primera semana
 
@@ -203,19 +221,21 @@ Los datos estructurados **no son un factor de ranking**; desambiguan entidades y
 
 ## 6. Orden exacto de integración
 
-1. Corregir dominio y assets en el `<head>` (sección 1 de `docs/geo-head-block.html`).
+1. **Decidir el dominio final** y aplicar el reemplazo global (comando en la sección 5). No integres el JSON-LD de producción si el sitio seguirá publicado en staging, o hazlo junto con el reemplazo.
 2. Insertar bloque C (datos verificables) entre `#beneficios` y `#testimonios`.
 3. Insertar bloque D (glosario) después de C.
 4. Insertar bloque E (8 FAQ) al final de `<div class="faq">` de `#faq`.
-5. Sustituir el JSON-LD actual por el de `docs/geo-head-block.html`.
-6. Publicar `llms.txt`, `llms-full.txt`, `ai.txt` y `/.well-known/ai.txt`.
-7. Añadir las directivas de IA a `robots.txt`.
-8. Actualizar `sitemap.xml`.
-9. Validar (sección 10) y comprobar con `curl` que los precios están en el HTML crudo.
+5. Sustituir el JSON-LD actual por el de `docs/geo-head-block.html` (ajustando el dominio si aplica).
+6. Publicar `llms.txt`, `llms-full.txt`, `ai.txt` y `/.well-known/ai.txt` (ya están en el repo: falta servirlos y verificarlos).
+7. ~~Añadir las directivas de IA a `robots.txt`~~ → **ya aplicado** durante la auditoría; revisar la equivalencia con el bloque de la sección 7.
+8. Actualizar `sitemap.xml` (`lastmod`).
+9. Validar (sección 10) y comprobar con `curl` que los precios están en el HTML crudo y que los `.txt` responden `text/plain`.
 
 ---
 
-## 7. Bloque de directivas para `robots.txt` (copiar tal cual)
+## 7. Bloque de directivas para `robots.txt` (referencia; ya aplicado el 16/11)
+
+> Estado: el `robots.txt` del repo ya incluye estas directivas (más Amazonbot, DuckAssistBot y MistralAI-User) y añade `Disallow: /docs/`. Se conserva el bloque como referencia y para comprobar la equivalencia en futuras revisiones.
 
 ```txt
 # =====================================================================
