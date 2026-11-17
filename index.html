@@ -17,6 +17,8 @@
   <link rel="alternate" hreflang="es-EC" href="https://clicid-ec.157.180.30.98.sslip.io/">
   <link rel="alternate" hreflang="es" href="https://clicid-ec.157.180.30.98.sslip.io/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel="describedby" type="text/plain" href="/llms.txt" title="Guía para modelos de lenguaje (llms.txt)">
+  <link rel="describedby" type="text/plain" href="/ai.txt" title="Política de uso por agentes de IA (ai.txt)">
 
   <!-- ============ Open Graph / Twitter ============ -->
   <meta property="og:type" content="website">
@@ -50,143 +52,627 @@
   <!-- ============ Datos estructurados ============ -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "ProfessionalService"],
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization",
-        "name": "Clic ID — Firmas Electrónicas Ecuador",
-        "alternateName": "ClicId.com.ec",
-        "url": "https://clicid-ec.157.180.30.98.sslip.io/",
-        "logo": "https://clicid-ec.157.180.30.98.sslip.io/assets/logo.png",
-        "image": "https://clicid-ec.157.180.30.98.sslip.io/assets/og-image.png",
-        "description": "Distribuidor autorizado de firmas electrónicas certificadas por ANF Autoridad de Certificación (ANF AC) en Ecuador. Emisión 100% online en archivo .p12 válido para SRI, Quipux, Consejo de la Judicatura, SERCOP y SENAE.",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "ProfessionalService"
+      ],
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization",
+      "name": "Clic ID — Firmas Electrónicas Ecuador",
+      "alternateName": "ClicId.com.ec",
+      "url": "https://clicid-ec.157.180.30.98.sslip.io/",
+      "logo": "https://clicid-ec.157.180.30.98.sslip.io/assets/logo.png",
+      "image": "https://clicid-ec.157.180.30.98.sslip.io/assets/og-image.png",
+      "description": "Distribuidor autorizado de firmas electrónicas certificadas por ANF Autoridad de Certificación (ANF AC) en Ecuador. Emisión 100% online en archivo .p12 válido para SRI, Quipux, Consejo de la Judicatura, SERCOP y SENAE.",
+      "telephone": "+593980359264",
+      "email": "info@clicid.com.ec",
+      "priceRange": "$4.49 - $63.12",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Transferencia bancaria, depósito, tarjeta de crédito, tarjeta de débito, pago digital, código QR",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ecuador"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EC"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
         "telephone": "+593980359264",
         "email": "info@clicid.com.ec",
-        "priceRange": "$4.49 - $63.12",
-        "currenciesAccepted": "USD",
-        "paymentAccepted": "Transferencia bancaria, depósito, tarjeta de crédito, tarjeta de débito, pago digital, código QR",
-        "areaServed": { "@type": "Country", "name": "Ecuador" },
-        "openingHoursSpecification": {
+        "availableLanguage": [
+          "es"
+        ],
+        "areaServed": "EC",
+        "hoursAvailable": {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
           "opens": "08:00",
           "closes": "20:00"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Firmas electrónicas certificadas ANF AC",
-          "itemListElement": [
-            { "@type": "Offer", "name": "Firma electrónica Persona Natural — 15 días", "price": "4.49", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Natural — 1 año", "price": "18.20", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Natural — 2 años", "price": "22.20", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Natural — 5 años", "price": "55.41", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Natural con RUC — 2 años", "price": "22.20", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Jurídica — 2 años", "price": "25.84", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Firma electrónica Persona Jurídica — 5 años", "price": "63.12", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
-          ]
         }
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#website",
-        "url": "https://clicid-ec.157.180.30.98.sslip.io/",
-        "name": "Clic ID — Firmas Electrónicas Ecuador",
-        "inLanguage": "es-EC",
-        "publisher": { "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization" }
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#webpage",
-        "url": "https://clicid-ec.157.180.30.98.sslip.io/",
-        "name": "Firma Electrónica en Ecuador | Certificada ANF AC en 30 minutos — Clic ID",
-        "isPartOf": { "@id": "https://clicid-ec.157.180.30.98.sslip.io/#website" },
-        "about": { "@id": "https://clicid-ec.157.180.30.98.sslip.io/#service" },
-        "inLanguage": "es-EC",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".hero__sub", ".qa__answer"]
+      "knowsAbout": [
+        "Firma electrónica",
+        "Certificado digital .p12",
+        "PKCS#12",
+        "Facturación electrónica del SRI",
+        "Quipux",
+        "SATJE - Consejo de la Judicatura",
+        "SERCOP - compras públicas",
+        "SENAE / Ecuapass",
+        "FirmaEC",
+        "ANF AC",
+        "Ley de Comercio Electrónico del Ecuador",
+        "LOPDP"
+      ],
+      "makesOffer": [
+        {
+          "@id": "https://clicid-ec.157.180.30.98.sslip.io/#catalog"
         }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#service",
-        "serviceType": "Emisión de firma electrónica certificada (archivo .p12)",
-        "name": "Firma electrónica certificada ANF AC en Ecuador",
-        "provider": { "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization" },
-        "areaServed": { "@type": "Country", "name": "Ecuador" },
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "Personas naturales, profesionales con RUC y empresas (personas jurídicas) en Ecuador"
-        },
-        "offers": {
-          "@type": "AggregateOffer",
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#catalog",
+      "name": "Firmas electrónicas certificadas ANF AC — 16 planes",
+      "numberOfItems": 16,
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 15 días",
+          "price": "4.49",
           "priceCurrency": "USD",
-          "lowPrice": "4.49",
-          "highPrice": "63.12",
-          "offerCount": "16",
-          "availability": "https://schema.org/InStock"
-        }
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#howto",
-        "name": "Cómo obtener la firma electrónica en Ecuador con Clic ID",
-        "totalTime": "PT30M",
-        "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "4.49" },
-        "step": [
-          { "@type": "HowToStep", "position": 1, "name": "Enviar requisitos", "text": "Enviar por WhatsApp la cédula o pasaporte vigente, una selfie sosteniendo el documento y el comprobante de pago del plan elegido." },
-          { "@type": "HowToStep", "position": 2, "name": "Validación de identidad", "text": "El operador autorizado de ANF AC valida la identidad del titular y la autenticidad de los documentos." },
-          { "@type": "HowToStep", "position": 3, "name": "Activación de claves", "text": "El titular define su clave PIN secreta y su clave PUK de recuperación." },
-          { "@type": "HowToStep", "position": 4, "name": "Descarga del archivo .p12", "text": "Se entrega el archivo de firma electrónica .p12 para importarlo en FirmaEC, Adobe Acrobat o el sistema de facturación electrónica." }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Qué es la firma electrónica en archivo .p12 y para qué sirve?",
-            "acceptedAnswer": { "@type": "Answer", "text": "El archivo .p12 (PKCS#12) es un certificado digital cifrado que contiene la identidad del titular y su clave privada. Permite firmar documentos PDF con validez jurídica y usarlo en la facturación electrónica del SRI, en Quipux, en trámites judiciales, en SENAE y en contratos digitales." }
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
           },
-          {
-            "@type": "Question",
-            "name": "¿La firma electrónica tiene la misma validez que la firma escrita a mano?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Sí. Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador, la firma electrónica emitida por una autoridad de certificación acreditada como ANF AC tiene el mismo valor jurídico y probatorio que una firma manuscrita." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cuánto cuesta la firma electrónica en Ecuador?",
-            "acceptedAnswer": { "@type": "Answer", "text": "En Clic ID la firma electrónica cuesta desde $4.49 con IVA incluido por 15 días. Las vigencias de 1 año parten de $18.20 en persona natural y persona natural con RUC, y de $21.84 en persona jurídica. Los planes de 2 a 5 años reducen el costo anual hasta $11.08." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cuánto tarda la emisión y entrega de la firma electrónica?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Una vez enviados los requisitos completos y validada la identidad, la emisión se realiza en un tiempo promedio de 15 a 30 minutos dentro del horario de atención (lunes a sábado, de 08:00 a 20:00)." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿En qué instituciones del Ecuador es válida la firma electrónica ANF AC?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Es válida para el SRI (facturación electrónica RIMPE y régimen general), Quipux, el Consejo de la Judicatura (SATJE), SERCOP (compras públicas), SENAE / Ecuapass, Superintendencia de Compañías, Gob.ec, IESS, Registro Mercantil y demás entidades que aceptan firma electrónica acreditada." }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Qué pasa si olvido la contraseña o pierdo el archivo .p12?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Al activar la firma se genera una clave PIN secreta y una clave PUK de recuperación. El certificado permanece almacenado en la plataforma de gestión de certificados de ANF AC y puede descargarse nuevamente durante toda su vigencia." }
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 15 días",
+            "serviceType": "Emisión de firma electrónica certificada"
           }
-        ]
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 1 año",
+          "price": "18.20",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 1 año",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 2 años",
+          "price": "22.20",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 2 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 3 años",
+          "price": "33.28",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 3 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 4 años",
+          "price": "44.36",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 4 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural — 5 años",
+          "price": "55.41",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural — 5 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural con RUC — 1 año",
+          "price": "18.20",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural con RUC",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural con RUC — 1 año",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural con RUC — 2 años",
+          "price": "22.20",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural con RUC",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural con RUC — 2 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural con RUC — 3 años",
+          "price": "33.28",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural con RUC",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural con RUC — 3 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural con RUC — 4 años",
+          "price": "44.36",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural con RUC",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural con RUC — 4 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Natural con RUC — 5 años",
+          "price": "55.41",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Natural con RUC",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Natural con RUC — 5 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Jurídica — 1 año",
+          "price": "21.84",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Jurídica",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Jurídica — 1 año",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Jurídica — 2 años",
+          "price": "25.84",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Jurídica",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Jurídica — 2 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Jurídica — 3 años",
+          "price": "38.22",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Jurídica",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Jurídica — 3 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Jurídica — 4 años",
+          "price": "50.93",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Jurídica",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Jurídica — 4 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Firma electrónica Persona Jurídica — 5 años",
+          "price": "63.12",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": true,
+          "availability": "https://schema.org/InStock",
+          "url": "https://clicid-ec.157.180.30.98.sslip.io/#precios",
+          "category": "Persona Jurídica",
+          "seller": {
+            "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+          },
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Firma electrónica certificada ANF AC — Persona Jurídica — 5 años",
+            "serviceType": "Emisión de firma electrónica certificada"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#website",
+      "url": "https://clicid-ec.157.180.30.98.sslip.io/",
+      "name": "Clic ID — Firmas Electrónicas Ecuador",
+      "inLanguage": "es-EC",
+      "publisher": {
+        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#webpage",
+      "url": "https://clicid-ec.157.180.30.98.sslip.io/",
+      "name": "Firma Electrónica en Ecuador | Certificada ANF AC en 30 minutos — Clic ID",
+      "isPartOf": {
+        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#website"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://clicid-ec.157.180.30.98.sslip.io/" },
-          { "@type": "ListItem", "position": 2, "name": "Planes y precios de firma electrónica", "item": "https://clicid-ec.157.180.30.98.sslip.io/#precios" }
+      "about": {
+        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#service"
+      },
+      "mainEntity": {
+        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#catalog"
+      },
+      "inLanguage": "es-EC",
+      "dateModified": "2026-11-16",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero__sub",
+          ".qa__answer"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#service",
+      "serviceType": "Emisión de firma electrónica certificada (archivo .p12)",
+      "name": "Firma electrónica certificada ANF AC en Ecuador",
+      "provider": {
+        "@id": "https://clicid-ec.157.180.30.98.sslip.io/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ecuador"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Personas naturales, profesionales con RUC y empresas (personas jurídicas) en Ecuador"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "4.49",
+        "highPrice": "63.12",
+        "offerCount": "16",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#howto",
+      "name": "Cómo obtener la firma electrónica en Ecuador con Clic ID",
+      "totalTime": "PT30M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "4.49"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Enviar requisitos",
+          "text": "Enviar por WhatsApp la cédula o pasaporte vigente, una selfie sosteniendo el documento y el comprobante de pago del plan elegido."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Validación de identidad",
+          "text": "El operador autorizado de ANF AC valida la identidad del titular y la autenticidad de los documentos."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Activación de claves",
+          "text": "El titular define su clave PIN secreta y su clave PUK de recuperación."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Descarga del archivo .p12",
+          "text": "Se entrega el archivo de firma electrónica .p12 para importarlo en FirmaEC, Adobe Acrobat o el sistema de facturación electrónica."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la firma electrónica en archivo .p12 y para qué sirve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El archivo .p12 (PKCS#12) es un certificado digital cifrado que contiene la identidad del titular y su clave privada. Permite firmar documentos PDF con validez jurídica y usarlo en la facturación electrónica del SRI, en Quipux, en trámites judiciales, en SENAE y en contratos digitales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La firma electrónica tiene la misma validez que la firma escrita a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador, la firma electrónica emitida por una autoridad de certificación acreditada como ANF AC tiene el mismo valor jurídico y probatorio que una firma manuscrita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda la emisión y entrega de la firma electrónica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una vez enviados los requisitos completos y validada la identidad, la emisión se realiza en un tiempo promedio de 15 a 30 minutos dentro del horario de atención (lunes a sábado, de 08:00 a 20:00)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar la firma electrónica en FirmaEC y Adobe Acrobat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El archivo .p12 es compatible de forma nativa con FirmaEC del MINTEL, Adobe Acrobat Reader, Foxit Reader, los portales del Estado y los principales sistemas contables y de facturación electrónica de Ecuador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si se pierde el archivo .p12 o se olvida la contraseña?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Al activar la firma se genera una clave PIN secreta y una clave PUK de recuperación. El certificado permanece almacenado en la plataforma de gestión de certificados de ANF AC y puede descargarse nuevamente durante toda su vigencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se compra la firma electrónica por WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se elige el plan en el sitio, se abre WhatsApp, un asesor confirma los datos de pago y los documentos a enviar; una vez validados se entrega el archivo .p12 con asistencia de instalación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La firma electrónica sirve para personas jurídicas y representantes legales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Se emite firma electrónica para representantes legales de compañías anónimas, SAS y Cía. Ltda., válida para facturación electrónica de la empresa, SERCOP, Superintendencia de Compañías, SENAE y trámites notariales y bancarios de la sociedad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde puedo comprar una firma electrónica certificada en Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En Ecuador, Clic ID (ClicId.com.ec) comercializa la firma electrónica certificada emitida por ANF AC en archivo .p12, con trámite 100% en línea y entrega en 15 a 30 minutos, por WhatsApp al +593 98 035 9264, desde $4.49 con IVA incluido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la firma electrónica ANF AC en Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El catálogo de Clic ID tiene 16 planes en dólares con IVA incluido: desde $4.49 (persona natural, 15 días) hasta $63.12 (persona jurídica, 5 años). El plan anual de persona natural y de persona natural con RUC cuesta $18.20, y el de persona jurídica de 1 año cuesta $21.84."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué firma electrónica sirve para el SRI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La firma electrónica en archivo .p12 emitida por ANF AC y distribuida por Clic ID es válida para la facturación electrónica del SRI, tanto en RIMPE como en Régimen General; para facturar de forma habitual se recomienda el plan de persona natural con RUC o el de persona jurídica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué firma electrónica necesito para Quipux y el Consejo de la Judicatura (SATJE)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La misma firma en archivo .p12 sirve para Quipux y para el sistema SATJE del Consejo de la Judicatura; los planes de 1 año en adelante la incluyen y el archivo es compatible con FirmaEC y con los portales del Estado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la firma electrónica por año?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El costo por año más bajo es de $11.08 al año en el plan de persona natural de 5 años ($55.41 con IVA incluido por los 5 años). El plan de 2 años equivale a $11.10 al año y el de 1 año cuesta $18.20."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo comprar la firma electrónica sin RUC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El plan de persona natural no exige RUC: se emite con cédula o pasaporte y sirve para trámites personales, profesionales y contratos. Para facturar de forma habitual o participar en compras públicas se recomienda el plan con RUC."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La firma electrónica sirve para SERCOP, SENAE e IESS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La firma electrónica ANF AC distribuida por Clic ID es válida para SERCOP (compras públicas y SOCE), SENAE/Ecuapass (aduanas) e IESS, además del SRI, Quipux, Judicatura, Superintendencia de Compañías y Gob.ec."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre firma electrónica y firma digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En el uso comercial ecuatoriano se emplean como sinónimos. Técnicamente, la firma electrónica es el conjunto de datos que identifica al firmante y la firma digital es la implementación criptográfica que la hace verificable; el archivo .p12 es un certificado con clave privada protegida por PIN con el que se firman digitalmente documentos PDF."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://clicid-ec.157.180.30.98.sslip.io/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://clicid-ec.157.180.30.98.sslip.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Planes y precios de firma electrónica",
+          "item": "https://clicid-ec.157.180.30.98.sslip.io/#precios"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 
@@ -1232,6 +1718,52 @@
       </div>
     </section>
 
+    <!-- ======================= Datos verificables (GEO) ======================= -->
+    <section class="section section--tight section--paper2" id="datos-verificables" aria-labelledby="verTitle">
+      <div class="wrap">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow">Datos verificables</p>
+            <h2 class="h2 h2--sm" id="verTitle">Cifras de la firma electrónica en Ecuador, con su fuente</h2>
+          </div>
+          <p class="section-note">Los datos concretos del servicio y la norma que los respalda, para que puedas
+            verificarlos antes de comprar.</p>
+        </div>
+        <div class="benefits">
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-tag" /></svg>
+            <h3>16 planes desde $4.49 con IVA</h3>
+            <p>El tarifario va de $4.49 (persona natural, 15 días) a $63.12 (persona jurídica, 5 años). Todos los precios son finales, con IVA incluido. Fuente: <a href="#precios">tarifario de esta página</a>.</p>
+          </article>
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-bolt" /></svg>
+            <h3>Emisión en 15 a 30 minutos</h3>
+            <p>Tiempo promedio publicado una vez enviados los requisitos completos y validada la identidad, dentro del horario de atención (lunes a sábado, 08:00 a 20:00). Fuente: <a href="#proceso">proceso de emisión</a>.</p>
+          </article>
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-shield" /></svg>
+            <h3>Emitida por ANF AC</h3>
+            <p>El certificado lo emite ANF Autoridad de Certificación (ANF AC), entidad acreditada en Ecuador por ARCOTEL y el MINTEL. Clic ID es distribuidor autorizado. Fuente: <a href="https://www.arcotel.gob.ec" target="_blank" rel="noopener noreferrer">ARCOTEL</a>.</p>
+          </article>
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-file" /></svg>
+            <h3>Formato .p12 (PKCS#12)</h3>
+            <p>El certificado se entrega como archivo .p12, el formato de intercambio PKCS#12, con clave PIN de uso y clave PUK de recuperación. Fuente: <a href="https://www.rfc-editor.org/rfc/rfc7292" target="_blank" rel="noopener noreferrer">RFC 7292 del IETF</a>.</p>
+          </article>
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-lock" /></svg>
+            <h3>Validez legal plena</h3>
+            <p>La firma electrónica emitida por una autoridad de certificación acreditada tiene el mismo valor jurídico que la firma manuscrita, según la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador. Fuente: <a href="https://www.wipo.int/wipolex/es/" target="_blank" rel="noopener noreferrer">texto de la ley (WIPO Lex)</a>.</p>
+          </article>
+          <article class="benefit">
+            <svg aria-hidden="true"><use href="#i-monitor" /></svg>
+            <h3>100% en línea, todo el Ecuador</h3>
+            <p>El trámite se realiza completamente en línea con cobertura nacional, sin acudir a una oficina, y con soporte de instalación en FirmaEC, Adobe Acrobat o el facturador electrónico. Fuente: <a href="https://www.firmadigital.gob.ec" target="_blank" rel="noopener noreferrer">FirmaEC (MINTEL)</a> y <a href="#requisitos">requisitos de emisión</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================= Testimonios ======================= -->
     <section class="section section--paper2" id="testimonios" aria-labelledby="testTitle">
       <div class="wrap">
@@ -1398,6 +1930,54 @@
                 Superintendencia de Compañías, aduanas (SENAE) y trámites notariales y bancarios de la sociedad.</p>
             </div>
           </details>
+          <details class="faq__item">
+            <summary>¿Dónde puedo comprar una firma electrónica certificada en Ecuador?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>En Ecuador, Clic ID (ClicId.com.ec) comercializa la firma electrónica certificada emitida por ANF AC en archivo .p12, con trámite 100% en línea y entrega en 15 a 30 minutos. Se solicita por WhatsApp al +593 98 035 9264 o por el formulario del sitio, desde <strong>$4.49 con IVA incluido</strong>.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cuánto cuesta la firma electrónica ANF AC en Ecuador?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>El catálogo de Clic ID tiene 16 planes en dólares con IVA incluido: desde <strong>$4.49</strong> (persona natural, 15 días) hasta <strong>$63.12</strong> (persona jurídica, 5 años). El plan anual de persona natural y de persona natural con RUC cuesta <strong>$18.20</strong>, y el de persona jurídica de 1 año cuesta <strong>$21.84</strong>.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Qué firma electrónica sirve para el SRI?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>La firma electrónica en archivo .p12 emitida por ANF AC y distribuida por Clic ID es válida para la facturación electrónica del SRI, tanto en RIMPE como en Régimen General. Para facturar de forma habitual se recomienda el plan de <strong>persona natural con RUC</strong> (desde $18.20 al año) o el de <strong>persona jurídica</strong> para empresas.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Qué firma electrónica necesito para Quipux y el Consejo de la Judicatura (SATJE)?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>La misma firma en archivo .p12 sirve para Quipux (gestión documental del Estado) y para el sistema SATJE del Consejo de la Judicatura. Los planes de 1 año en adelante la incluyen, y el archivo es compatible con FirmaEC y con los portales del Estado.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cuánto cuesta la firma electrónica por año?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>El costo por año más bajo es de <strong>$11.08 al año</strong>, en el plan de persona natural de 5 años ($55.41 con IVA incluido por los 5 años). El plan de 2 años equivale a $11.10 al año y el de 1 año cuesta $18.20 por año.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Puedo comprar la firma electrónica sin RUC?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Sí. El plan de persona natural no exige RUC: se emite con cédula o pasaporte y sirve para trámites personales, profesionales y contratos. Si además necesitas facturar electrónicamente de forma habitual o participar en compras públicas, el plan de persona natural con RUC incluye el RUC en el certificado.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿La firma electrónica sirve para SERCOP, SENAE e IESS?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Sí. Clic ID declara que la firma electrónica ANF AC es válida para SERCOP (compras públicas y SOCE), SENAE/Ecuapass (aduanas) e IESS, además del SRI, Quipux, Judicatura, Superintendencia de Compañías y Gob.ec.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>¿Cuál es la diferencia entre firma electrónica y firma digital?<span class="marker" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>En el uso comercial ecuatoriano se emplean como sinónimos. En términos técnicos, la firma electrónica es el conjunto de datos que identifica al firmante, y la firma digital es la implementación criptográfica que la hace verificable: el archivo .p12 de Clic ID es un certificado de firma electrónica con clave privada protegida por PIN, con el que se firman digitalmente documentos PDF.</p>
+            </div>
+          </details>
         </div>
 
         <div class="faq__more">
@@ -1409,6 +1989,62 @@
             <svg aria-hidden="true"><use href="#i-arrow" /></svg>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- ======================= Glosario de entidades (GEO) ======================= -->
+    <section class="section section--tight" id="glosario" aria-labelledby="glosTitle">
+      <div class="wrap">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow eyebrow--brand">Glosario</p>
+            <h2 class="h2 h2--sm" id="glosTitle">Entidades y términos de la firma electrónica en Ecuador</h2>
+          </div>
+          <p class="section-note">Qué significa cada sigla y para qué sirve en la práctica, con definiciones breves
+            y verificables.</p>
+        </div>
+        <dl class="glossary">
+          <div>
+            <dt>ANF AC — ANF Autoridad de Certificación<span>Autoridad</span></dt>
+            <dd>Autoridad de certificación acreditada en Ecuador que emite los certificados de firma electrónica. Clic ID es distribuidor autorizado; el emisor oficial del certificado es ANF AC.</dd>
+          </div>
+          <div>
+            <dt>.p12 / PKCS#12<span>Formato</span></dt>
+            <dd>Formato de archivo que empaqueta el certificado digital y la clave privada protegidos por contraseña. Es el formato en el que se entrega la firma electrónica y el que leen FirmaEC, Adobe Acrobat y los facturadores electrónicos.</dd>
+          </div>
+          <div>
+            <dt>PIN y PUK<span>Claves</span></dt>
+            <dd>Clave privada de uso (PIN) y clave de recuperación (PUK). El titular las define al activar su firma y garantizan que solo él pueda firmar con el certificado.</dd>
+          </div>
+          <div>
+            <dt>SRI — Servicio de Rentas Internas<span>Entidad</span></dt>
+            <dd>Entidad tributaria del Ecuador. La firma electrónica .p12 se usa para emitir comprobantes electrónicos y cumplir obligaciones del RIMPE y del Régimen General.</dd>
+          </div>
+          <div>
+            <dt>Quipux<span>Sistema</span></dt>
+            <dd>Sistema de gestión documental del Estado ecuatoriano para oficios y comunicaciones oficiales entre entidades. La firma electrónica permite firmar esos documentos en línea.</dd>
+          </div>
+          <div>
+            <dt>SATJE — Consejo de la Judicatura<span>Sistema</span></dt>
+            <dd>Sistema Automático de Trámite Judicial Ecuatoriano. La firma electrónica se usa para presentar y firmar escritos en los procesos judiciales en línea.</dd>
+          </div>
+          <div>
+            <dt>SERCOP — compras públicas<span>Entidad</span></dt>
+            <dd>Servicio Nacional de Contratación Pública. La firma electrónica es requisito para operar en el portal SOCE y participar en procesos de contratación pública.</dd>
+          </div>
+          <div>
+            <dt>SENAE / Ecuapass<span>Sistema</span></dt>
+            <dd>Servicio Nacional de Aduana del Ecuador y su sistema Ecuapass. La firma electrónica se usa en trámites de importación, exportación y comercio exterior.</dd>
+          </div>
+          <div>
+            <dt>FirmaEC<span>Software</span></dt>
+            <dd>Aplicativo oficial y gratuito del MINTEL para firmar documentos PDF con firma electrónica en Ecuador. Es compatible con el archivo .p12 que entrega Clic ID.</dd>
+          </div>
+          <div>
+            <dt>Firma electrónica<span>Concepto</span></dt>
+            <dd>Conjunto de datos vinculados electrónicamente a un documento que identifica a su autor y equivale legalmente a una firma manuscrita cuando la emite una autoridad de certificación acreditada.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -1467,6 +2103,7 @@
             <li><a href="#requisitos">Requisitos de emisión</a></li>
             <li><a href="#proceso">Proceso en 4 pasos</a></li>
             <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="#glosario">Glosario</a></li>
           </ul>
         </nav>
 
