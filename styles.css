@@ -1848,6 +1848,12 @@ input[type="range"].range:active::-webkit-slider-thumb {
   color: var(--ink);
 }
 
+@media (min-width: 880px) {
+  .benefits--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* ---------- 15. Testimonials ---------- */
 .quotes {
   display: grid;
