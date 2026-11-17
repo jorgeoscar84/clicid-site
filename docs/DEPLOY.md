@@ -53,6 +53,12 @@ git remote -v          # origin = repo original, deploy = jorgeoscar84/clicid-si
 git push deploy main
 ```
 
+Estado real tras el push inicial: `refs/heads/main` = `e0cf4ad` (6 commits: los 5 del
+repo original + el commit de infraestructura). El push inicial falló la primera vez
+porque el clon local era **shallow**; se corrigió con `git fetch --unshallow origin`
+(ver §7). Una vez des-shalloweado, el workspace queda normal y los pushes siguientes
+funcionan sin pasos extra.
+
 ### Push de cada cambio de contenido (uso normal)
 
 ```powershell
@@ -90,9 +96,14 @@ git -c credential.helper= -c core.askPass= ls-remote https://github.com/jorgeosc
 
 ### 3.1 Proyecto / environment
 
-- Buscar existente con `project-all`; si no hay uno adecuado:
-  `project-create { name: "Clic ID", description: "Sitio clicid.com.ec" }`.
-- Anotar el `environmentId` del environment por defecto (con `project-one`).
+Reconocimiento **solo lectura** de la instancia `dokploy` (2026-11-16): no existe
+proyecto ni aplicación de Clic ID todavía (`application-search "clicid"` → 0), así
+que hay que crear ambos.
+
+- `project-create { name: "Clic ID", description: "Sitio clicid.com.ec" }`.
+- El proyecto nace con un environment `production` por defecto; obtener su
+  `environmentId` con `project-one` (o de la respuesta de `project-create`) y usarlo
+  en el paso siguiente.
 
 ### 3.2 Crear la aplicación
 
@@ -337,6 +348,7 @@ docker run -d --name clicid-site -p 80:80 --restart unless-stopped clicid-site:l
 
 | Síntoma | Causa probable / acción |
 |---|---|
+| `git push` rechazado: `did not receive expected object … index-pack failed` | El clon local era **shallow**. `git fetch --unshallow origin` y reintentar el push (máx. un par de MB en este repo). |
 | 404 en `/` tras deploy | Build type no es `dockerfile` o `dockerfile`/contexto mal (`Dockerfile`, `/`); revisar logs del build. |
 | 502 Bad Gateway | Contenedor caído o puerto de dominio ≠ 80; revisar `application-one`, `application-readLogs`. |
 | HTTPS no emite certificado | DNS no apunta a `157.180.30.98`; verificar `nslookup` y esperar a Let's Encrypt. |
