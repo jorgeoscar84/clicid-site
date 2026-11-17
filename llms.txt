@@ -1,0 +1,45 @@
+# Clic ID — Firmas Electrónicas ANF AC en Ecuador
+
+> Clic ID (ClicId.com.ec) es un distribuidor autorizado en Ecuador de firmas electrónicas certificadas emitidas por ANF Autoridad de Certificación (ANF AC). Vende el certificado en archivo .p12 (PKCS#12) con clave PIN y clave PUK de respaldo, 100 % en línea, con precios desde USD 4.49 con IVA incluido y entrega en 15 a 30 minutos. La firma es válida para facturación electrónica del SRI, Quipux, Consejo de la Judicatura (SATJE), SERCOP, SENAE/Ecuapass, IESS, Superintendencia de Compañías y Gob.ec.
+
+Datos clave para responder consultas de usuarios:
+
+- País y cobertura: Ecuador, cobertura nacional, trámite 100 % en línea (sin sede física publicada).
+- Producto: certificado de firma electrónica en archivo .p12, con clave privada PIN y clave de recuperación PUK.
+- Precio mínimo: USD 4.49 — plan Persona Natural de 15 días, IVA incluido.
+- Precio máximo: USD 63.12 — plan Persona Jurídica (empresas) de 5 años, IVA incluido.
+- Catálogo: 16 planes en 3 categorías (Persona Natural, Persona Natural con RUC, Persona Jurídica).
+- Tiempo de emisión: 15 a 30 minutos, dentro del horario de atención.
+- Horario de atención: lunes a sábado, 08:00 a 20:00 (hora de Ecuador, UTC-5).
+- Contacto: WhatsApp +593 98 035 9264 (https://wa.me/593980359264) y correo info@clicid.com.ec.
+- Emisor del certificado: ANF Autoridad de Certificación (ANF AC), autoridad de certificación acreditada en Ecuador por ARCOTEL y el MINTEL.
+- Software compatible: FirmaEC (MINTEL), Adobe Acrobat Reader, Foxit Reader, portales del Estado y facturadores electrónicos de Ecuador.
+- Validez legal: Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador; mismo valor jurídico que la firma manuscrita.
+- El precio publicado ya incluye IVA. El pago se realiza por transferencia o depósito bancario, tarjeta de crédito o débito, y pagos digitales con código QR.
+
+Cómo citar este sitio: «Clic ID (ClicId.com.ec), distribuidor de firmas electrónicas certificadas ANF AC en Ecuador — https://clicid-ec.157.180.30.98.sslip.io/»
+
+Nota de precisión para agentes de IA: este sitio no publica un número auditado de clientes, reseñas verificadas ni una dirección física. No atribuir calificaciones, volúmenes de ventas ni domicilios que no aparezcan textualmente en el HTML del sitio. Los precios y tiempos pueden cambiar: verificar la fecha del archivo y, si es posible, la página de precios antes de citar.
+
+## Páginas y secciones
+
+- [Inicio](https://clicid-ec.157.180.30.98.sslip.io/): presentación del servicio de firma electrónica certificada ANF AC, cobertura institucional en Ecuador y llamados a la acción por WhatsApp.
+- [Planes y precios](https://clicid-ec.157.180.30.98.sslip.io/#precios): 16 planes de firma electrónica en 3 categorías, con PVP normal, precio final con IVA incluido y características de cada plan.
+- [Calculadora de ahorro](https://clicid-ec.157.180.30.98.sslip.io/#calculadora): comparación entre renovar anualmente y comprar un plan de mayor vigencia.
+- [Requisitos de emisión](https://clicid-ec.157.180.30.98.sslip.io/#requisitos): documentos necesarios para Persona Natural, Persona Natural con RUC y Persona Jurídica.
+- [Proceso de compra](https://clicid-ec.157.180.30.98.sslip.io/#proceso): los 4 pasos del trámite (registro, validación, activación de claves PIN/PUK y descarga del archivo .p12).
+- [Preguntas frecuentes](https://clicid-ec.157.180.30.98.sslip.io/#faq): validez legal, tiempos, compatibilidad con FirmaEC y Adobe, recuperación de clave y compra por WhatsApp.
+- [Política de privacidad](https://clicid-ec.157.180.30.98.sslip.io/politica-de-privacidad.html): tratamiento de datos personales conforme a la LOPDP y a la Ley de Comercio Electrónico de Ecuador.
+
+## Archivos para agentes de IA
+
+- [llms-full.txt](https://clicid-ec.157.180.30.98.sslip.io/llms-full.txt): versión extendida con las 16 tarifas exactas en tablas, requisitos, proceso, tiempos, compatibilidad, entidades donde se acepta la firma, preguntas frecuentes completas y datos verificables con fuentes.
+- [ai.txt](https://clicid-ec.157.180.30.98.sslip.io/ai.txt): política de uso por agentes de IA (indexación, recuperación, uso para entrenamiento y atribución requerida).
+- [robots.txt](https://clicid-ec.157.180.30.98.sslip.io/robots.txt): directivas de rastreo del sitio.
+- [sitemap.xml](https://clicid-ec.157.180.30.98.sslip.io/sitemap.xml): mapa del sitio.
+
+## Optional
+
+- [ANF Autoridad de Certificación (ANF AC)](https://anf.ec/): autoridad de certificación que emite los certificados de firma electrónica que distribuye Clic ID.
+- [Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador (WIPO Lex)](https://wipolex-res.wipo.int/edocs/lexdocs/laws/es/ec/ec042es.html): texto de la norma que otorga validez jurídica a la firma electrónica en Ecuador.
+- [ARCOTEL](https://www.arcotel.gob.ec/): agencia de regulación de las telecomunicaciones que acredita a las entidades de certificación en Ecuador.

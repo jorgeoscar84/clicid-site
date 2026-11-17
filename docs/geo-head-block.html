@@ -1,0 +1,831 @@
+<!-- ==========================================================================
+     BLOQUE GEO / AI SEO PARA EL <head> DE index.html — Clic ID
+     Versión 2 — alineada al rediseño del 16/11/2026 (styles.css v5)
+     ==========================================================================
+     QUÉ CORRIGE ESTE BLOQUE (respecto al <head> actual del sitio):
+
+       1. DOMINIO: el canonical, los hreflang, og:url, twitter:url y los @id del
+          JSON-LD apuntan hoy a https://clicid-ec.157.180.30.98.sslip.io/ (URL de
+          staging de Dokploy). Deben apuntar al dominio de producción
+          https://clicid.com.ec/ antes de publicar: si no, se consolida la
+          autoridad en un host que no es el de la marca.
+       2. og:image y twitter:image apuntan a /assets/og-image.png, que NO existe
+          en el repositorio (assets/ tiene hero-signature.jpg, logo.png, etc.).
+          Hay que crear la imagen 1200x630 o apuntar a un asset existente.
+       3. JSON-LD: el OfferCatalog de Organization solo lista 7 ofertas y el
+          Service declara offerCount 15 con AggregateOffer; el sitio tiene 16
+          planes. Se completan las 16 ofertas con valueAddedTaxIncluded: true.
+       4. FAQPage: el JSON-LD declara 6 preguntas; la página visible tiene 7 y,
+          tras integrar el bloque E de docs/geo-content-blocks.html, tendrá 15.
+          Este bloque declara las 15.
+       5. Se añaden: sameAs, contactPoint, knowsAbout, slogan y brand en
+          Organization; hasOfferCatalog en Service; mainEntity y breadcrumb en
+          WebPage; dateModified; supply y urls en HowTo.
+       6. Se mantiene SIN aggregateRating (el sitio no tiene reseñas verificadas)
+          y SIN SearchAction (no hay buscador interno; Google retiró el sitelinks
+          search box en octubre de 2024).
+
+     CÓMO INTEGRARLO (orden):
+       1. Insertar A (respuesta rápida) y B (tabla) ya implementados: verificar.
+       2. Insertar los bloques C, D y E de docs/geo-content-blocks.html
+          (E añade las 8 preguntas nuevas; sin E, el FAQPage de este bloque
+          declararía preguntas no visibles: NO publicar este JSON-LD antes).
+       3. En <head>: corregir las 5 líneas de dominio y la og:image (sección 1).
+       4. Sustituir el <script type="application/ld+json"> actual (líneas ~51-190
+          de index.html) por el de la sección 2. Debe quedar UN SOLO bloque.
+       5. Publicar llms.txt, llms-full.txt, ai.txt y la copia en
+          /.well-known/ai.txt.
+       6. Actualizar sitemap.xml (lastmod) y robots.txt (directivas de IA en
+          docs/GEO-STRATEGY.md, sección 7).
+
+     PENDIENTE DEL CLIENTE (no inventar): en "sameAs" solo se incluye el enlace
+     real de WhatsApp. Añadir cuando existan los perfiles reales:
+       "sameAs": [
+         "https://wa.me/593980359264",
+         "https://www.google.com/maps/place/...",   <-- Google Business Profile
+         "https://www.facebook.com/...",
+         "https://www.instagram.com/...",
+         "https://www.linkedin.com/company/..."
+       ]
+     Si se publica una dirección física, añadir "address" (PostalAddress) al
+     nodo Organization.
+     ========================================================================== -->
+
+
+<!-- ==========================================================================
+     1. CORRECCIONES EN EL <head> (dominio de producción y og:image)
+     ==========================================================================
+     Sustituir estas líneas del <head> actual:
+
+       ANTES: <link rel="canonical" href="https://clicid-ec.157.180.30.98.sslip.io/">
+       AHORA: -->
+<link rel="canonical" href="https://clicid.com.ec/">
+
+<!-- ANTES: <link rel="alternate" hreflang="es-EC" href="https://clicid-ec.157.180.30.98.sslip.io/">
+     ANTES: <link rel="alternate" hreflang="es"    href="https://clicid-ec.157.180.30.98.sslip.io/"> -->
+<link rel="alternate" hreflang="es-EC" href="https://clicid.com.ec/">
+<link rel="alternate" hreflang="es" href="https://clicid.com.ec/">
+
+<!-- ANTES: <meta property="og:url" content="https://clicid-ec.157.180.30.98.sslip.io/"> -->
+<meta property="og:url" content="https://clicid.com.ec/">
+
+<!-- NOTA og:image: el sitio referencia /assets/og-image.png, que NO existe.
+     Crear assets/og-image.png de 1200x630 px (o sustituir por un asset real y
+     ajustar width/height). Mientras no exista, la tarjeta social se rompe. -->
+<meta property="og:image" content="https://clicid.com.ec/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://clicid.com.ec/assets/og-image.png">
+
+<!-- ============ NUEVOS: descubrimiento de archivos para agentes de IA ============ -->
+<link rel="describedby" type="text/markdown" href="https://clicid.com.ec/llms.txt"
+  title="Resumen del sitio para agentes de IA">
+<link rel="alternate" type="text/plain" href="https://clicid.com.ec/llms-full.txt"
+  title="Contenido completo del sitio para agentes de IA">
+
+
+<!-- ==========================================================================
+     2. JSON-LD — @graph completo (SUSTITUYE el bloque actual, no añadir otro)
+     Tipos: Organization/ProfessionalService · WebSite · WebPage ·
+            Service · OfferCatalog (16 ofertas) · FAQPage (15) · HowTo · BreadcrumbList
+     Todas las URL son de producción (https://clicid.com.ec/).
+     ========================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://clicid.com.ec/#organization",
+      "name": "Clic ID — Firmas Electrónicas Ecuador",
+      "alternateName": ["ClicId.com.ec", "Clic ID Ecuador", "Clic ID Firmas Electrónicas"],
+      "url": "https://clicid.com.ec/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://clicid.com.ec/#logo",
+        "url": "https://clicid.com.ec/assets/logo.png",
+        "contentUrl": "https://clicid.com.ec/assets/logo.png",
+        "caption": "Clic ID — Firmas Electrónicas Ecuador"
+      },
+      "image": "https://clicid.com.ec/assets/hero-signature.jpg",
+      "description": "Clic ID es distribuidor autorizado de firmas electrónicas certificadas por ANF Autoridad de Certificación (ANF AC) en Ecuador. Emisión 100% en línea en archivo .p12 con clave PIN y clave PUK, precios desde USD 4.49 con IVA incluido y entrega en 15 a 30 minutos. Válida para SRI, Quipux, Consejo de la Judicatura (SATJE), SERCOP, SENAE/Ecuapass, IESS, Superintendencia de Compañías y Gob.ec.",
+      "slogan": "Firma electrónica certificada en menos de 30 minutos",
+      "telephone": "+593980359264",
+      "email": "info@clicid.com.ec",
+      "priceRange": "$4.49 - $63.12",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Transferencia bancaria, depósito, tarjeta de crédito, tarjeta de débito, pago digital, código QR",
+      "areaServed": { "@type": "Country", "name": "Ecuador" },
+      "availableLanguage": ["es", "es-EC"],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "@id": "https://clicid.com.ec/#contactpoint",
+        "contactType": "customer service",
+        "telephone": "+593980359264",
+        "email": "info@clicid.com.ec",
+        "availableLanguage": ["es", "es-EC"],
+        "areaServed": "EC"
+      },
+      "sameAs": ["https://wa.me/593980359264"],
+      "knowsAbout": [
+        "Firma electrónica certificada",
+        "ANF Autoridad de Certificación (ANF AC)",
+        "PKCS#12 (.p12)",
+        "Firma electrónica para el SRI",
+        "Facturación electrónica en Ecuador",
+        "Quipux",
+        "Consejo de la Judicatura (SATJE)",
+        "SERCOP",
+        "SENAE / Ecuapass",
+        "FirmaEC",
+        "Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "ANF Autoridad de Certificación (ANF AC)",
+        "url": "https://anf.ec/"
+      },
+      "hasOfferCatalog": { "@id": "https://clicid.com.ec/#offercatalog" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://clicid.com.ec/#website",
+      "url": "https://clicid.com.ec/",
+      "name": "Clic ID — Firmas Electrónicas Ecuador",
+      "alternateName": "ClicId.com.ec",
+      "inLanguage": "es-EC",
+      "publisher": { "@id": "https://clicid.com.ec/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://clicid.com.ec/#webpage",
+      "url": "https://clicid.com.ec/",
+      "name": "Firma Electrónica en Ecuador | Certificada ANF AC en 30 minutos — Clic ID",
+      "description": "Compra tu firma electrónica certificada ANF AC en Ecuador desde $4.49 con IVA incluido. Archivo .p12 válido para SRI, Quipux, Judicatura, SERCOP y SENAE. Emisión 100% online en 15 a 30 minutos.",
+      "isPartOf": { "@id": "https://clicid.com.ec/#website" },
+      "about": { "@id": "https://clicid.com.ec/#service" },
+      "mainEntity": { "@id": "https://clicid.com.ec/#service" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://clicid.com.ec/assets/hero-signature.jpg"
+      },
+      "breadcrumb": { "@id": "https://clicid.com.ec/#breadcrumb" },
+      "inLanguage": "es-EC",
+      "dateModified": "2026-11-16",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero__sub", ".qa__answer"]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://clicid.com.ec/#service",
+      "serviceType": "Emisión de firma electrónica certificada (archivo .p12)",
+      "name": "Firma electrónica certificada ANF AC en Ecuador",
+      "description": "Emisión de la firma electrónica certificada por ANF Autoridad de Certificación (ANF AC) en Ecuador, en archivo .p12 (PKCS#12) con clave PIN y clave PUK de respaldo. Trámite 100% en línea con entrega en 15 a 30 minutos. Válida para facturación electrónica del SRI, Quipux, Consejo de la Judicatura (SATJE), SERCOP, SENAE/Ecuapass, IESS, Superintendencia de Compañías y Gob.ec.",
+      "provider": { "@id": "https://clicid.com.ec/#organization" },
+      "areaServed": { "@type": "Country", "name": "Ecuador" },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Personas naturales, profesionales con RUC y empresas (personas jurídicas) en Ecuador"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://clicid.com.ec/#precios",
+        "servicePhone": {
+          "@type": "ContactPoint",
+          "telephone": "+593980359264",
+          "contactType": "customer service"
+        }
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ANF Autoridad de Certificación (ANF AC)",
+        "url": "https://anf.ec/"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "4.49",
+        "highPrice": "63.12",
+        "offerCount": "16",
+        "availability": "https://schema.org/InStock",
+        "url": "https://clicid.com.ec/#precios"
+      },
+      "hasOfferCatalog": { "@id": "https://clicid.com.ec/#offercatalog" }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://clicid.com.ec/#offercatalog",
+      "name": "Tarifario de firmas electrónicas ANF AC — Clic ID (USD, IVA incluido)",
+      "url": "https://clicid.com.ec/#precios",
+      "numberOfItems": 16,
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Persona Natural",
+          "description": "Para facturación electrónica del SRI, trámites personales, profesionales y contratos.",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-15-dias",
+              "name": "Firma electrónica Persona Natural — 15 días",
+              "description": "Certificado de firma electrónica en archivo .p12 válido para SRI, Quipux y Gob.ec. Entrega en 15 a 30 minutos. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "4.49",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "4.49",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 15 días",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-1-anio",
+              "name": "Firma electrónica Persona Natural — 1 año",
+              "description": "Certificado de firma electrónica en archivo .p12 válido para facturación electrónica del SRI (RIMPE), Quipux, Judicatura e IESS. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "18.20",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "18.20",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 1 año",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-2-anios",
+              "name": "Firma electrónica Persona Natural — 2 años",
+              "description": "Certificado de firma electrónica en archivo .p12 por 2 años, válido para todo tipo de trámite legal y facturación electrónica. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "22.20",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "22.20",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 2 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-3-anios",
+              "name": "Firma electrónica Persona Natural — 3 años",
+              "description": "Certificado de firma electrónica en archivo .p12 por 36 meses, válido para SRI, SENAE y SERCOP. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "33.28",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "33.28",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 3 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-4-anios",
+              "name": "Firma electrónica Persona Natural — 4 años",
+              "description": "Certificado de firma electrónica en archivo .p12 por 48 meses, compatible con Windows, macOS, Linux y móvil. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "44.36",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "44.36",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 4 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-5-anios",
+              "name": "Firma electrónica Persona Natural — 5 años",
+              "description": "Certificado de firma electrónica en archivo .p12 por 5 años completos; el costo por año más bajo del tarifario (USD 11.08/año). Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "55.41",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "55.41",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 — vigencia 5 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Persona Natural con RUC",
+          "description": "Para profesionales independientes, comerciantes y contribuyentes con RUC activo en el SRI.",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-ruc-1-anio",
+              "name": "Firma electrónica Persona Natural con RUC — 1 año",
+              "description": "Certificado de firma electrónica en archivo .p12 con RUC integrado, para facturación electrónica del SRI, Supercias, IESS y Quipux. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "18.20",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "18.20",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 con RUC — vigencia 1 año",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-ruc-2-anios",
+              "name": "Firma electrónica Persona Natural con RUC — 2 años",
+              "description": "Certificado de firma electrónica en archivo .p12 con RUC integrado por 2 años, válido para SERCOP, bancos y notarías digitales. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "22.20",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "22.20",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 con RUC — vigencia 2 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-ruc-3-anios",
+              "name": "Firma electrónica Persona Natural con RUC — 3 años",
+              "description": "Certificado de firma electrónica en archivo .p12 con RUC integrado por 3 años, válido para SENAE/Ecuapass. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "33.28",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "33.28",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 con RUC — vigencia 3 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-ruc-4-anios",
+              "name": "Firma electrónica Persona Natural con RUC — 4 años",
+              "description": "Certificado de firma electrónica en archivo .p12 con RUC integrado por 4 años, con instalación remota guiada. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "44.36",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "44.36",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 con RUC — vigencia 4 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-natural-ruc-5-anios",
+              "name": "Firma electrónica Persona Natural con RUC — 5 años",
+              "description": "Certificado de firma electrónica en archivo .p12 con RUC integrado por 5 años, con reenvío del certificado ante extravío. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "55.41",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "55.41",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica .p12 con RUC — vigencia 5 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Persona Jurídica (Empresas)",
+          "description": "Para representantes legales de compañías anónimas, SAS, Cía. Ltda. y entidades corporativas.",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-juridica-1-anio",
+              "name": "Firma electrónica Persona Jurídica — 1 año",
+              "description": "Certificado de firma electrónica para representante legal, con facturación electrónica ante Supercias, SRI y SERCOP. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "21.84",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "21.84",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica de empresa .p12 — vigencia 1 año",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-juridica-2-anios",
+              "name": "Firma electrónica Persona Jurídica — 2 años",
+              "description": "Certificado de firma electrónica para representante legal por 2 años, alineado al periodo de nombramiento y válido para contratos públicos y licitaciones. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "25.84",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "25.84",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica de empresa .p12 — vigencia 2 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-juridica-3-anios",
+              "name": "Firma electrónica Persona Jurídica — 3 años",
+              "description": "Certificado de firma electrónica corporativo por 36 meses, válido para aduanas SENAE y comercio exterior. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "38.22",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "38.22",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica de empresa .p12 — vigencia 3 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-juridica-4-anios",
+              "name": "Firma electrónica Persona Jurídica — 4 años",
+              "description": "Certificado de firma electrónica corporativo por 4 años, con integración en ERP y facturación masiva. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "50.93",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "50.93",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica de empresa .p12 — vigencia 4 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://clicid.com.ec/#oferta-persona-juridica-5-anios",
+              "name": "Firma electrónica Persona Jurídica — 5 años",
+              "description": "Certificado de firma electrónica corporativo por 5 años, con validez jurídica plena según la Ley de Comercio Electrónico del Ecuador. Precio final con IVA incluido.",
+              "url": "https://clicid.com.ec/#precios",
+              "price": "63.12",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "eligibleRegion": { "@type": "Country", "name": "Ecuador" },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "63.12",
+                "priceCurrency": "USD",
+                "valueAddedTaxIncluded": true
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Firma electrónica de empresa .p12 — vigencia 5 años",
+                "serviceType": "Certificado de firma electrónica",
+                "provider": { "@id": "https://clicid.com.ec/#organization" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://clicid.com.ec/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la firma electrónica en archivo .p12 y para qué sirve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El archivo .p12 (PKCS#12) es un certificado digital cifrado que contiene tu identidad digital y tu clave privada. Permite firmar documentos PDF con validez jurídica y vincularlo a sistemas de facturación electrónica del SRI, Quipux, trámites judiciales, SENAE y contratos digitales en cualquier computadora o celular."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tiene la misma validez que mi firma escrita a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, 100%. Conforme a la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador, la firma electrónica emitida por una autoridad de certificación acreditada como ANF AC tiene exactamente el mismo valor jurídico, probatorio y legal que una firma manuscrita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo tarda la emisión y entrega de la firma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una vez que envías tus requisitos completos y se valida tu identidad, tu certificado se emite en un tiempo récord de 15 a 30 minutos dentro del horario de atención habitual. Recibirás las instrucciones de descarga y activación de claves por correo y WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar la firma en el software oficial FirmaEC y Adobe Acrobat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Totalmente. Nuestro archivo .p12 es compatible de forma nativa con el aplicativo estatal FirmaEC del MINTEL, Adobe Acrobat Reader, Foxit Reader, portales web del gobierno y los principales sistemas contables y de facturación electrónica del Ecuador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si olvido mi contraseña o se me pierde el archivo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Al activar tu firma se genera una clave PIN secreta y una clave PUK de respaldo. Además, tu certificado queda almacenado con seguridad en la plataforma de gestión de certificados de ANF AC, donde podrás volver a descargarlo las veces que lo requieras durante toda su vigencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo es el proceso de compra por WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Haces clic en cualquier botón de WhatsApp, eliges el plan, un asesor te confirma los datos de pago y te indica qué documentos enviar. Una vez validados, recibes tu archivo .p12 y la asistencia de instalación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La firma electrónica sirve para personas jurídicas y representantes legales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Emitimos firma electrónica para representantes legales de compañías anónimas, SAS y Cía. Ltda., válida para facturación electrónica de la empresa, contratación pública (SERCOP), trámites en Superintendencia de Compañías, aduanas (SENAE) y trámites notariales y bancarios de la sociedad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde puedo comprar una firma electrónica certificada en Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En Ecuador, Clic ID (ClicId.com.ec) comercializa la firma electrónica certificada emitida por ANF AC en archivo .p12, con trámite 100% en línea y entrega en 15 a 30 minutos. Se solicita por WhatsApp al +593 98 035 9264 o por el formulario del sitio, desde $4.49 con IVA incluido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la firma electrónica ANF AC en Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El catálogo de Clic ID tiene 16 planes en dólares con IVA incluido: desde $4.49 (persona natural, 15 días) hasta $63.12 (persona jurídica, 5 años). El plan anual de persona natural y de persona natural con RUC cuesta $18.20, y el de persona jurídica de 1 año cuesta $21.84."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué firma electrónica sirve para el SRI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La firma electrónica en archivo .p12 emitida por ANF AC y distribuida por Clic ID es válida para la facturación electrónica del SRI, tanto en RIMPE como en Régimen General. Para facturar de forma habitual se recomienda el plan de persona natural con RUC (desde $18.20 al año) o el de persona jurídica para empresas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué firma electrónica necesito para Quipux y el Consejo de la Judicatura (SATJE)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La misma firma en archivo .p12 sirve para Quipux (gestión documental del Estado) y para el sistema SATJE del Consejo de la Judicatura. Los planes de 1 año en adelante la incluyen, y el archivo es compatible con FirmaEC y con los portales del Estado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta la firma electrónica por año?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El costo por año más bajo es de $11.08 al año, en el plan de persona natural de 5 años ($55.41 con IVA incluido por los 5 años). El plan de 2 años equivale a $11.10 al año y el de 1 año cuesta $18.20 por año."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo comprar la firma electrónica sin RUC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El plan de persona natural no exige RUC: se emite con cédula o pasaporte y sirve para trámites personales, profesionales y contratos. Si además necesitas facturar electrónicamente de forma habitual o participar en compras públicas, el plan de persona natural con RUC incluye el RUC en el certificado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La firma electrónica sirve para SERCOP, SENAE e IESS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Clic ID declara que la firma electrónica ANF AC es válida para SERCOP (compras públicas y SOCE), SENAE/Ecuapass (aduanas) e IESS, además del SRI, Quipux, Judicatura, Superintendencia de Compañías y Gob.ec."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre firma electrónica y firma digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En el uso comercial ecuatoriano se emplean como sinónimos. En términos técnicos, la firma electrónica es el conjunto de datos que identifica al firmante, y la firma digital es la implementación criptográfica que la hace verificable: el archivo .p12 de Clic ID es un certificado de firma electrónica con clave privada protegida por PIN, con el que se firman digitalmente documentos PDF."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://clicid.com.ec/#howto",
+      "name": "Cómo obtener la firma electrónica en Ecuador con Clic ID",
+      "description": "Proceso de 4 pasos para obtener la firma electrónica certificada ANF AC en Ecuador, en archivo .p12 y con entrega en 15 a 30 minutos.",
+      "totalTime": "PT30M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "4.49"
+      },
+      "supply": [
+        { "@type": "HowToSupply", "name": "Cédula o pasaporte vigente, a color y legible por ambos lados" },
+        { "@type": "HowToSupply", "name": "Fotografía selfie o video sosteniendo el documento de identidad" },
+        { "@type": "HowToSupply", "name": "Comprobante de pago del plan elegido" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Enviar requisitos",
+          "text": "Enviar por WhatsApp la cédula o pasaporte vigente, una selfie sosteniendo el documento y el comprobante de pago del plan elegido.",
+          "url": "https://clicid.com.ec/#proceso"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Validación de identidad",
+          "text": "El operador autorizado de ANF AC valida la identidad del titular y la autenticidad de los documentos.",
+          "url": "https://clicid.com.ec/#proceso"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Activación de claves",
+          "text": "El titular define su clave PIN secreta y su clave PUK de recuperación.",
+          "url": "https://clicid.com.ec/#proceso"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Descarga del archivo .p12",
+          "text": "Se entrega el archivo de firma electrónica .p12 para importarlo en FirmaEC, Adobe Acrobat o el sistema de facturación electrónica.",
+          "url": "https://clicid.com.ec/#proceso"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://clicid.com.ec/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://clicid.com.ec/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Planes y precios de firma electrónica",
+          "item": "https://clicid.com.ec/#precios"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ==========================================================================
+     3. OPCIONAL — SearchAction (NO incluir todavía)
+     ==========================================================================
+     El sitio no tiene buscador interno y Google retiró el sitelinks search box
+     en octubre de 2024. Incluir SOLO si se implementa un buscador real. En ese
+     caso, añadir al nodo WebSite del @graph:
+
+     "potentialAction": {
+       "@type": "SearchAction",
+       "target": {
+         "@type": "EntryPoint",
+         "urlTemplate": "https://clicid.com.ec/buscar?q={search_term_string}"
+       },
+       "query-input": "required name=search_term_string"
+     }
+     ========================================================================== -->

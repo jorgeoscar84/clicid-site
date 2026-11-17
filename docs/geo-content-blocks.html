@@ -1,0 +1,318 @@
+<!-- ==========================================================================
+     BLOQUES DE CONTENIDO GEO PARA index.html — Clic ID
+     ==========================================================================
+     CONTEXTO (importante): el 16/11/2026 el sitio fue rediseñado en paralelo
+     (styles.css v5, index.html con precios en HTML del servidor). Ese rediseño
+     YA incluye los bloques A (respuesta rápida `#respuesta-rapida`) y B (tabla
+     comparativa `.rate` con 16 planes). Por eso este archivo:
+
+       - A y B: quedan como CHECKLIST DE VERIFICACIÓN, no se deben volver a
+         insertar (duplicaría contenido).
+       - C, D y E: son los bloques que FALTAN y que deben integrarse.
+
+     Todos reutilizan clases que YA existen en el styles.css v5 (verificado):
+       section, section--tight, section--paper2, wrap, section-head, eyebrow,
+       eyebrow--brand, h2, benefits, benefit, qa__facts, qa__fact, faq,
+       faq__item, faq__a, link-arrow
+     NO se necesita CSS nuevo. Las clases .geo-* del borrador anterior ya no
+     hacen falta (el rediseño trae la tabla `.rate` y la lista de definiciones
+     `.qa__facts`).
+
+     ORDEN DE INSERCIÓN:
+       C) entre </section> de #beneficios y <section ... id="testimonios">
+       D) inmediatamente después del bloque C
+       E) dentro de <div class="faq"> de la sección #faq, al final (después del
+          último <details> y antes de </div> que cierra .faq)
+
+     CONSISTENCIA: las 8 preguntas de E son exactamente las que el JSON-LD de
+     docs/geo-head-block.html declara en el FAQPage (ese archivo ya incluye las
+     15 preguntas visibles: las 7 actuales de la página + estas 8).
+     ========================================================================== -->
+
+
+<!-- ==========================================================================
+     BLOQUE A — «Respuesta rápida» (answer-first)
+     ESTADO: YA IMPLEMENTADO en index.html (sección #respuesta-rapida).
+     ==========================================================================
+     Verificación (solo revisar, NO duplicar):
+
+       [x] Existe <section ... class="... qa" id="respuesta-rapida">.
+       [x] La respuesta está en <p class="qa__answer"> y tiene 63 palabras.
+       [x] Incluye la cifra clave ($4.49 con IVA), el rango ($63.12) y el
+           plazo (15 a 30 minutos).
+       [x] Está en el HTML del servidor (no la inyecta JavaScript).
+       [x] El JSON-LD la usa como selector de speakable (.qa__answer).
+
+     Mejora opcional (bajo impacto, no obligatoria): añadir dentro de la misma
+     sección un párrafo de una línea que nombre las entidades que el usuario
+     suele buscar juntas, para reforzar el enlazado de entidad:
+
+       <p class="section-note">
+         Válida para SRI, Quipux, Consejo de la Judicatura (SATJE), SERCOP,
+         SENAE/Ecuapass, IESS, Superintendencia de Compañías y Gob.ec.
+       </p>
+     ========================================================================== -->
+
+
+<!-- ==========================================================================
+     BLOQUE B — Tabla comparativa citable de los 16 planes
+     ESTADO: YA IMPLEMENTADO en index.html (tabla `.rate` dentro de
+     .rate-table-wrap, en la sección #precios).
+     ==========================================================================
+     Verificación (solo revisar, NO duplicar):
+
+       [x] 16 filas de datos (6 Persona Natural + 5 con RUC + 5 Jurídica).
+       [x] <caption> con moneda, IVA incluido y fecha de vigencia.
+       [x] Columnas: Perfil, Vigencia, Precio final, Precio normal, Costo por
+           año, Ahorro.
+       [x] Está en el HTML del servidor: los bots que no ejecutan JavaScript
+           sí ven los precios (esto era el agujero crítico del sitio anterior).
+
+     Correcciones recomendadas sobre la tabla (pequeñas, alto valor):
+       1. Los porcentajes «−35%» de la columna Ahorro son idénticos en las 16
+          filas y no coinciden con el cálculo real de todas ellas (por ejemplo
+          15 días: 2.41 / 6.90 = 34.9%; 2 años: 11.96 / 34.16 = 35.0%;
+          5 años: 29.84 / 85.25 = 35.0%). O se calcula por fila con dos
+          decimales, o se retira la columna y se deja solo el ahorro en USD,
+          que sí es exacto. Un porcentaje redondeado a la baja no resta, pero
+          un porcentaje erróneo sí.
+       2. El <caption> dice «Vigente a noviembre de 2026»; conviene incluir el
+          día exacto para que los asistentes puedan fechar la cita.
+       3. Añadir un enlace visible a `llms-full.txt` en la nota de la tabla no
+          es necesario; el dato ya está en el HTML.
+
+     (La tabla ya publica el dato más importante del sitio. No requiere
+     cambios para GEO; solo las tres mejoras de arriba.)
+     ========================================================================== -->
+
+
+<!-- ==========================================================================
+     BLOQUE C — «Datos verificables / cifras con fuente»
+     Insertar entre </section> de #beneficios y <section ... id="testimonios">.
+     Usa .benefits / .benefit (clases existentes). Los iconos son del sprite
+     SVG que ya define index.html (#i-shield, #i-bolt, #i-id, #i-layers,
+     #i-monitor, #i-tag).
+     ========================================================================== -->
+<section class="section" id="datos-verificables" aria-labelledby="datosTitle">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow eyebrow--brand">Datos verificables</p>
+      <h2 class="h2" id="datosTitle">Cifras de la firma electrónica en Ecuador, con su fuente</h2>
+      <p>Los datos concretos del servicio y la norma que los respalda, para que puedas verificarlos antes de comprar.</p>
+    </div>
+
+    <div class="benefits">
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-tag" /></svg>
+        <h3>16 planes desde $4.49 con IVA</h3>
+        <p>El tarifario va de $4.49 (persona natural, 15 días) a $63.12 (persona jurídica, 5 años). Todos los precios
+          son finales, con IVA incluido. Fuente: <a class="link-arrow" href="#precios">tarifario de esta página</a>.</p>
+      </article>
+
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-bolt" /></svg>
+        <h3>Emisión en 15 a 30 minutos</h3>
+        <p>Tiempo promedio publicado una vez enviados los requisitos completos y validada la identidad, dentro del
+          horario de atención (lunes a sábado, 08:00 a 20:00). Fuente: <a class="link-arrow" href="#proceso">proceso de
+            emisión</a>.</p>
+      </article>
+
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-shield" /></svg>
+        <h3>Emitida por ANF AC</h3>
+        <p>El certificado lo emite ANF Autoridad de Certificación (ANF AC), entidad acreditada en Ecuador por ARCOTEL y
+          el MINTEL. Clic ID es distribuidor autorizado. Fuente: <a class="link-arrow" href="https://anf.ec/"
+            target="_blank" rel="noopener">ANF AC</a> y <a class="link-arrow" href="https://www.arcotel.gob.ec/"
+            target="_blank" rel="noopener">ARCOTEL</a>.</p>
+      </article>
+
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-id" /></svg>
+        <h3>Formato .p12 (PKCS#12)</h3>
+        <p>El certificado se entrega como archivo .p12, el formato de intercambio PKCS#12, con clave PIN de uso y clave
+          PUK de recuperación. Fuente: <a class="link-arrow" href="https://datatracker.ietf.org/doc/html/rfc7292"
+            target="_blank" rel="noopener">RFC 7292 del IETF</a>.</p>
+      </article>
+
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-layers" /></svg>
+        <h3>Validez legal plena</h3>
+        <p>La firma electrónica emitida por una autoridad de certificación acreditada tiene el mismo valor jurídico que
+          la firma manuscrita, según la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del
+          Ecuador. Fuente: <a class="link-arrow"
+            href="https://wipolex-res.wipo.int/edocs/lexdocs/laws/es/ec/ec042es.html" target="_blank" rel="noopener">texto
+            de la ley (WIPO Lex)</a>.</p>
+      </article>
+
+      <article class="benefit">
+        <svg aria-hidden="true"><use href="#i-monitor" /></svg>
+        <h3>100% en línea, todo el Ecuador</h3>
+        <p>El trámite se realiza completamente en línea con cobertura nacional, sin acudir a una oficina, y con soporte
+          de instalación en FirmaEC, Adobe Acrobat o el facturador electrónico. Fuente: <a class="link-arrow"
+            href="#requisitos">requisitos de emisión</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     BLOQUE D — Glosario de entidades
+     Insertar inmediatamente después del bloque C.
+     Usa .qa__facts / .qa__fact (definición de datos existente en styles.css v5)
+     dentro de un <dl>, que es el marcado semántico correcto para un glosario.
+     Permite que los modelos enlacen Clic ID con las entidades que menciona el
+     usuario (SRI, Quipux, SATJE, SERCOP, SENAE, ANF AC, firma electrónica).
+     ========================================================================== -->
+<section class="section section--paper2" id="glosario" aria-labelledby="glosarioTitle">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Glosario</p>
+      <h2 class="h2" id="glosarioTitle">Entidades y términos de la firma electrónica en Ecuador</h2>
+      <p>Qué significa cada sigla y para qué sirve en la práctica, con definiciones breves y verificables.</p>
+    </div>
+
+    <dl class="qa__facts" style="max-width:820px;">
+      <div class="qa__fact">
+        <dt>ANF AC — ANF Autoridad de Certificación</dt>
+        <dd>Autoridad de certificación acreditada en Ecuador que emite los certificados de firma electrónica. Clic ID es
+          distribuidor autorizado; el emisor oficial es ANF AC.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>.p12 / PKCS#12</dt>
+        <dd>Formato de archivo que empaqueta el certificado digital y la clave privada, protegido por contraseña. Es el
+          formato en el que se entrega la firma electrónica y el que leen FirmaEC, Adobe Acrobat y los facturadores
+          electrónicos.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>PIN y PUK</dt>
+        <dd>Clave privada de uso (PIN) y clave de recuperación (PUK). El titular las define al activar su firma y
+          garantizan que solo él pueda firmar con el certificado.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>SRI — Servicio de Rentas Internas</dt>
+        <dd>Entidad tributaria del Ecuador. La firma electrónica .p12 se usa para emitir comprobantes electrónicos y
+          cumplir obligaciones del RIMPE y del Régimen General.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>Quipux</dt>
+        <dd>Sistema de gestión documental del Estado ecuatoriano para oficios y comunicaciones oficiales entre
+          entidades. La firma electrónica permite firmar esos documentos en línea.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>SATJE — Consejo de la Judicatura</dt>
+        <dd>Sistema Automático de Trámite Judicial Ecuatoriano. La firma electrónica se usa para presentar y firmar
+          escritos en los procesos judiciales en línea.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>SERCOP — compras públicas</dt>
+        <dd>Servicio Nacional de Contratación Pública. La firma electrónica es requisito para operar en el portal SOCE y
+          participar en procesos de contratación pública.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>SENAE / Ecuapass</dt>
+        <dd>Servicio Nacional de Aduana del Ecuador y su sistema Ecuapass. La firma electrónica se usa en trámites de
+          importación, exportación y comercio exterior.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>FirmaEC</dt>
+        <dd>Aplicativo oficial y gratuito del MINTEL para firmar documentos PDF con firma electrónica en Ecuador.
+          Compatible con el archivo .p12 que entrega Clic ID.</dd>
+      </div>
+      <div class="qa__fact">
+        <dt>Firma electrónica</dt>
+        <dd>Conjunto de datos vinculados a un documento que identifica al firmante y equivale jurídicamente a la firma
+          manuscrita, según la Ley de Comercio Electrónico, Firmas Electrónicas y Mensajes de Datos del Ecuador.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     BLOQUE E — 8 preguntas frecuentes conversacionales (FAQ extendido)
+     Insertar DENTRO de <div class="faq"> de la sección #faq, al final
+     (después del último <details> y antes del cierre del div .faq).
+
+     Son <details>/<summary> nativos: no requieren JavaScript y el texto queda
+     en el HTML aunque estén cerrados (igual que las 7 preguntas actuales).
+     Estas 8 preguntas son exactamente las nuevas del FAQPage del JSON-LD.
+     ========================================================================== -->
+<details class="faq__item">
+  <summary>¿Dónde puedo comprar una firma electrónica certificada en Ecuador?<span class="marker"
+      aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>En Ecuador, Clic ID (ClicId.com.ec) comercializa la firma electrónica certificada emitida por ANF AC en archivo
+      .p12, con trámite 100% en línea y entrega en 15 a 30 minutos. Se solicita por WhatsApp al +593 98 035 9264 o por
+      el formulario del sitio, desde <strong>$4.49 con IVA incluido</strong>.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Cuánto cuesta la firma electrónica ANF AC en Ecuador?<span class="marker" aria-hidden="true"></span>
+  </summary>
+  <div class="faq__a">
+    <p>El catálogo de Clic ID tiene 16 planes en dólares con IVA incluido: desde <strong>$4.49</strong> (persona
+      natural, 15 días) hasta <strong>$63.12</strong> (persona jurídica, 5 años). El plan anual de persona natural y de
+      persona natural con RUC cuesta <strong>$18.20</strong>, y el de persona jurídica de 1 año cuesta
+      <strong>$21.84</strong>.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Qué firma electrónica sirve para el SRI?<span class="marker" aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>La firma electrónica en archivo .p12 emitida por ANF AC y distribuida por Clic ID es válida para la facturación
+      electrónica del SRI, tanto en RIMPE como en Régimen General. Para facturar de forma habitual se recomienda el plan
+      de <strong>persona natural con RUC</strong> (desde $18.20 al año) o el de <strong>persona jurídica</strong> para
+      empresas.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Qué firma electrónica necesito para Quipux y el Consejo de la Judicatura (SATJE)?<span class="marker"
+      aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>La misma firma en archivo .p12 sirve para Quipux (gestión documental del Estado) y para el sistema SATJE del
+      Consejo de la Judicatura. Los planes de 1 año en adelante la incluyen, y el archivo es compatible con FirmaEC y
+      con los portales del Estado.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Cuánto cuesta la firma electrónica por año?<span class="marker" aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>El costo por año más bajo es de <strong>$11.08 al año</strong>, en el plan de persona natural de 5 años ($55.41
+      con IVA incluido por los 5 años). El plan de 2 años equivale a $11.10 al año y el de 1 año cuesta $18.20 por
+      año.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Puedo comprar la firma electrónica sin RUC?<span class="marker" aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>Sí. El plan de persona natural no exige RUC: se emite con cédula o pasaporte y sirve para trámites personales,
+      profesionales y contratos. Si además necesitas facturar electrónicamente de forma habitual o participar en
+      compras públicas, el plan de persona natural con RUC incluye el RUC en el certificado.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿La firma electrónica sirve para SERCOP, SENAE e IESS?<span class="marker" aria-hidden="true"></span>
+  </summary>
+  <div class="faq__a">
+    <p>Sí. Clic ID declara que la firma electrónica ANF AC es válida para SERCOP (compras públicas y SOCE),
+      SENAE/Ecuapass (aduanas) e IESS, además del SRI, Quipux, Judicatura, Superintendencia de Compañías y Gob.ec.</p>
+  </div>
+</details>
+
+<details class="faq__item">
+  <summary>¿Cuál es la diferencia entre firma electrónica y firma digital?<span class="marker"
+      aria-hidden="true"></span></summary>
+  <div class="faq__a">
+    <p>En el uso comercial ecuatoriano se emplean como sinónimos. En términos técnicos, la firma electrónica es el
+      conjunto de datos que identifica al firmante, y la firma digital es la implementación criptográfica que la hace
+      verificable: el archivo .p12 de Clic ID es un certificado de firma electrónica con clave privada protegida por
+      PIN, con el que se firman digitalmente documentos PDF.</p>
+  </div>
+</details>
